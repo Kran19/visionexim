@@ -1,0 +1,19 @@
+{
+  "name": "Vision Exim",
+  "short_name": "Vision Exim",
+  "icons": [
+    {
+      "src": "/images/favicons/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

@@ -1,0 +1,35 @@
+# Large archive files (GitHub has 100MB per-file hard limit)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Logs & Temporary Files
+logs/
+*.log
+error_log
+*/error_log
+public_html/error_log
+public_html/admin/error_log
+
+# Session files
+admin/sessions/sess_*
+public_html/admin/sessions/sess_*
+
+# Dependencies & Build artifacts
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# OS & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

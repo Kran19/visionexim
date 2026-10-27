@@ -1,0 +1,22 @@
+# Disable directory listing
+Options -Indexes
+
+# Protect sensitive directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/.*$ - [F,L]
+    RewriteRule ^admin/includes/.*$ - [F,L]
+</IfModule>
+
+# Block access to hidden files like .env or .git
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Basic Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
