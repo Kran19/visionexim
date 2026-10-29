@@ -903,109 +903,84 @@ include 'includes/header.php';
 	}
 
 	.reach-map-card {
-		position: relative;
+		position: sticky;
+		top: 100px;
 		background: #ffffff;
 		border: 1px solid rgba(24, 24, 36, 0.08);
 		border-radius: 28px;
 		padding: 24px;
-		min-height: 100%;
-		box-shadow: 0 16px 40px rgba(24, 24, 36, 0.06);
+		box-shadow: 0 18px 45px rgba(24, 24, 36, 0.07);
 	}
 
 	.reach-map-shell {
 		position: relative;
-		min-height: 420px;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		min-height: 440px;
 		border-radius: 20px;
-		background: #fff9f5;
+		background-color: #fff9f5;
+		background-image: url('assets/images/world_reach_map.jpg');
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
 		overflow: hidden;
 		border: 1px solid rgba(217, 164, 65, 0.15);
 	}
 
-	.reach-map-shell::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: url('assets/images/world_reach_map.jpg') center center/cover no-repeat;
-		opacity: 0.96;
-		transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-	}
-
-	.reach-map-shell:hover::before {
-		transform: scale(1.03);
-	}
-
 	.reach-origin-point {
 		position: absolute;
-		top: 48%;
-		left: 69%;
+		top: 47%;
+		left: 64%;
 		z-index: 3;
 		transform: translate(-50%, -50%);
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		pointer-events: auto;
 	}
 
 	.reach-origin-point .hub-dot {
-		width: 12px;
-		height: 12px;
+		width: 10px;
+		height: 10px;
 		background: #1F4D3A;
 		border: 2px solid #fff;
 		border-radius: 50%;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 		position: relative;
 		z-index: 2;
 	}
 
 	.reach-origin-point .pulse-ring {
 		position: absolute;
-		width: 26px;
-		height: 26px;
+		width: 24px;
+		height: 24px;
 		border-radius: 50%;
-		background: rgba(31, 77, 58, 0.4);
+		background: rgba(31, 77, 58, 0.45);
 		animation: originPulse 2s infinite ease-out;
 		z-index: 1;
 	}
 
-	.reach-origin-label {
-		position: absolute;
-		bottom: calc(100% + 6px);
-		left: 50%;
-		transform: translateX(-50%);
-		background: #1F4D3A;
-		color: #ffffff;
-		font-size: 10px;
-		font-weight: 700;
-		padding: 3px 8px;
-		border-radius: 6px;
-		white-space: nowrap;
-		letter-spacing: 0.5px;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-	}
-
 	@keyframes originPulse {
-		0% { transform: scale(0.6); opacity: 1; }
-		100% { transform: scale(1.7); opacity: 0; }
+		0% { transform: scale(0.5); opacity: 1; }
+		100% { transform: scale(1.8); opacity: 0; }
 	}
 
 	.region-pill {
 		position: absolute;
 		display: inline-flex;
 		align-items: center;
-		padding: 8px 15px;
+		padding: 8px 16px;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.95);
+		background: rgba(255, 255, 255, 0.96);
 		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
 		border: 1px solid rgba(192, 25, 26, 0.16);
 		box-shadow: 0 10px 24px rgba(24, 24, 36, 0.12);
-		font-size: 12px;
+		font-size: 13px;
 		font-weight: 700;
 		color: var(--dark, #181824);
 		z-index: 2;
-		transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 		cursor: default;
 		white-space: nowrap;
+		transition: all 0.25s ease;
 	}
 
 	.region-pill::before {
@@ -1013,50 +988,25 @@ include 'includes/header.php';
 		display: inline-block;
 		width: 8px;
 		height: 8px;
-		margin-right: 7px;
+		margin-right: 8px;
 		border-radius: 50%;
 		background: var(--primary, #C0191A);
-		box-shadow: 0 0 0 4px rgba(192, 25, 26, 0.15);
-		animation: pulseDot 2.2s infinite;
+		box-shadow: 0 0 0 4px rgba(192, 25, 26, 0.16);
 	}
 
 	.region-pill:hover {
-		transform: translateY(-3px) scale(1.05);
-		border-color: rgba(192, 25, 26, 0.45);
+		transform: translateY(-3px) scale(1.04);
+		border-color: rgba(192, 25, 26, 0.4);
 		box-shadow: 0 14px 28px rgba(192, 25, 26, 0.2);
 		background: #ffffff;
 	}
 
-	@keyframes pulseDot {
-		0%, 100% { box-shadow: 0 0 0 3px rgba(192, 25, 26, 0.22); }
-		50% { box-shadow: 0 0 0 7px rgba(192, 25, 26, 0.05); }
-	}
-
 	/* Geographic destination alignments */
-	.region-europe {
-		top: 22%;
-		left: 46%;
-	}
-
-	.region-middle-east {
-		top: 36%;
-		left: 54%;
-	}
-
-	.region-africa {
-		top: 60%;
-		left: 45%;
-	}
-
-	.region-asia {
-		top: 44%;
-		left: 67%;
-	}
-
-	.region-far-east {
-		top: 26%;
-		left: 81%;
-	}
+	.region-europe { top: 20%; left: 48%; }
+	.region-middle-east { top: 34%; left: 52%; }
+	.region-africa { top: 56%; left: 45%; }
+	.region-asia { top: 48%; left: 73%; }
+	.region-far-east { top: 26%; left: 82%; }
 
 	.category-card,
 	.testimonial-card,
@@ -1254,44 +1204,36 @@ include 'includes/header.php';
 			font-size: 14px;
 		}
 
+		.reach-map-card {
+			position: static;
+			padding: 16px;
+			border-radius: 20px;
+		}
+
 		.reach-map-shell {
-			min-height: 340px;
+			min-height: 280px;
+			aspect-ratio: 16 / 11;
 		}
 
 		.region-pill {
-			padding: 6px 11px;
+			padding: 4px 9px;
 			font-size: 11px;
+			box-shadow: 0 4px 12px rgba(24, 24, 36, 0.12);
 		}
 
-		.reach-origin-point {
-			top: 48%;
-			left: 69%;
+		.region-pill::before {
+			width: 6px;
+			height: 6px;
+			margin-right: 5px;
+			box-shadow: 0 0 0 3px rgba(192, 25, 26, 0.16);
 		}
 
-		.region-europe {
-			top: 20%;
-			left: 44%;
-		}
-
-		.region-middle-east {
-			top: 35%;
-			left: 53%;
-		}
-
-		.region-africa {
-			top: 62%;
-			left: 44%;
-		}
-
-		.region-asia {
-			top: 46%;
-			left: 67%;
-		}
-
-		.region-far-east {
-			top: 25%;
-			left: 79%;
-		}
+		.region-europe { top: 18%; left: 45%; }
+		.region-middle-east { top: 32%; left: 48%; }
+		.region-africa { top: 56%; left: 42%; }
+		.region-asia { top: 48%; left: 66%; }
+		.region-far-east { top: 24%; left: 72%; }
+		.reach-origin-point { top: 46%; left: 60%; }
 	}
 	.certifications-section {
 		background: #fdfaf5;
@@ -1811,7 +1753,7 @@ include 'includes/header.php';
 
 <section class="modern-home-section reach-section">
 	<div class="container">
-		<div class="row align-items-center gy-5">
+		<div class="row align-items-start gy-5">
 			<div class="col-lg-5" data-aos="fade-right">
 				<span class="section-kicker">Anywhere You Need Us</span>
 				<h2 class="section-heading">Global Export Reach</h2>
@@ -1862,10 +1804,9 @@ include 'includes/header.php';
 			</div>
 			<div class="col-lg-7" data-aos="fade-left">
 				<div class="reach-map-card">
-					<div class="reach-map-shell">
+					<div class="reach-map-shell" style="background-image: url('<?= htmlspecialchars(ve_url('assets/images/world_reach_map.jpg')) ?>');">
 						<!-- Vision Exim Origin Hub -->
-						<div class="reach-origin-point" title="Vision Exim HQ (India)">
-							<span class="reach-origin-label">INDIA (HQ)</span>
+						<div class="reach-origin-point" title="Origin: India (Vision Exim Hub)">
 							<span class="pulse-ring"></span>
 							<span class="hub-dot"></span>
 						</div>
