@@ -75,7 +75,11 @@ $saved_email = isset($_COOKIE['remember_admin']) ? htmlspecialchars($_COOKIE['re
     <title>Login — Vision Exim Admin</title>
     <meta name="robots" content="noindex, nofollow">
 
-    <link rel="icon" type="image/png" href="../images/favicons/favicon-96x96.png" sizes="96x96" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?= htmlspecialchars(ve_url('images/favicons/favicon-96x96.png')) ?>?v=2" sizes="96x96" />
+    <link rel="icon" type="image/png" href="<?= htmlspecialchars(ve_url('images/favicons/favicon-32x32.png')) ?>?v=2" sizes="32x32" />
+    <link rel="shortcut icon" href="<?= htmlspecialchars(ve_url('images/favicons/favicon.ico')) ?>?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= htmlspecialchars(ve_url('images/favicons/apple-touch-icon.png')) ?>?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
